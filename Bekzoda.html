@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GADGETSTORE — Гаджеттер дүкені</title>
+</head>
+<style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+
+.header {
+    background: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    min-height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #1769ff;
+    letter-spacing: 1px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav a {
+    font-size: 15px;
+    color: #4b5563;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: #1769ff;
+}
+
+.header-btn {
+    background: #1769ff;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.header-btn:hover {
+    background: #0e52ce;
+}
+
+
+
+.hero {
+    background: #f4f8ff;
+    padding: 80px 0;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.subtitle {
+    color: #1769ff;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 56px;
+    line-height: 1.1;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #1769ff;
+}
+
+.hero-description {
+    max-width: 550px;
+    color: #667085;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.primary {
+    background: #1769ff;
+    color: white;
+}
+
+.primary:hover {
+    background: #0e52ce;
+}
+
+.secondary {
+    background: white;
+    border: 1px solid #d7dce5;
+    color: #172033;
+}
+
+.secondary:hover {
+    border-color: #1769ff;
+    color: #1769ff;
+}
+
+.hero-image {
+    height: 470px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.hero-image img {
+    height: 100%;
+    object-fit: cover;
+}
+
+
+
+.section {
+    padding: 90px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.section-title > p:last-child {
+    color: #667085;
+}
+
+
+
+.categories {
+    background: white;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.category-card {
+    background: #f7f9fc;
+    border: 1px solid #e9edf3;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+    border-color: #1769ff;
+    box-shadow: 0 12px 30px rgba(23, 105, 255, 0.1);
+}
+
+.category-card img {
+    height: 180px;
+    object-fit: cover;
+}
+
+.category-card div {
+    padding: 18px;
+}
+
+.category-card h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.category-card p {
+    color: #737b8c;
+    font-size: 14px;
+}
+
+
+
+.products {
+    background: #f7f9fc;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid #e8ebf0;
+    transition: 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(20, 30, 50, 0.1);
+}
+
+.product-image {
+    height: 250px;
+    overflow: hidden;
+    background: #f2f4f7;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-category {
+    color: #1769ff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.product-info h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.product-text {
+    color: #737b8c;
+    font-size: 14px;
+    min-height: 45px;
+    margin-bottom: 15px;
+}
+
+.product-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.product-bottom strong {
+    font-size: 18px;
+}
+
+.buy-btn {
+    background: #1769ff;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 7px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.buy-btn:hover {
+    background: #0e52ce;
+}
+
+
+
+.advantages {
+    background: white;
+}
+
+.advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.advantage-card {
+    padding: 30px 25px;
+    border: 1px solid #e8ebf0;
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.advantage-card:hover {
+    border-color: #1769ff;
+    transform: translateY(-4px);
+}
+
+.advantage-card h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.advantage-card p {
+    color: #737b8c;
+    font-size: 14px;
+}
+
+
+
+.about {
+    background: #f7f9fc;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-image {
+    height: 450px;
+    overflow: hidden;
+    border-radius: 18px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-text h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: #667085;
+    margin-bottom: 18px;
+}
+
+
+
+.newsletter {
+    background: #1769ff;
+    color: white;
+    padding: 70px 0;
+}
+
+.newsletter .subtitle {
+    color: white;
+}
+
+.newsletter-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.newsletter h2 {
+    font-size: 34px;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+
+.newsletter-content p:last-child {
+    opacity: 0.85;
+}
+
+.newsletter-form {
+    display: flex;
+    background: white;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.newsletter-form input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 13px;
+    font-size: 15px;
+}
+
+.newsletter-form button {
+    border: none;
+    background: #172033;
+    color: white;
+    padding: 0 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+
+.footer {
+    background: #101828;
+    color: white;
+    padding-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 50px;
+    padding-bottom: 50px;
+}
+
+.footer-logo {
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.footer-column p {
+    color: #98a2b3;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+    margin-bottom: 18px;
+}
+
+.footer-column a {
+    display: block;
+    color: #98a2b3;
+    font-size: 14px;
+    margin-bottom: 9px;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid #263142;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.copyright p {
+    color: #98a2b3;
+    font-size: 13px;
+}
+
+</style>
+
+<body>
+
+<header class="header">
+    <div class="container header-content">
+        <a href="#" class="logo">GADGETSTORE</a>
+
+        <nav class="nav">
+            <a href="#home">Басты бет</a>
+            <a href="#categories">Категориялар</a>
+            <a href="#products">Тауарлар</a>
+            <a href="#about">Біз туралы</a>
+            <a href="#contact">Байланыс</a>
+        </nav>
+
+        <a href="#products" class="header-btn">Тауарларды көру</a>
+    </div>
+</header>
+
+
+<main>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <div class="hero-text">
+                <p class="subtitle">ЖАҢА ТЕХНОЛОГИЯЛАР</p>
+
+                <h1>
+                    Заманауи гаджеттер
+                    <span>бір жерде</span>
+                </h1>
+
+                <p class="hero-description">
+                    Смартфондар, ноутбуктер, планшеттер, құлаққаптар
+                    және басқа да заманауи құрылғыларды тиімді бағамен таңдаңыз.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#products" class="btn primary">Сатып алу</a>
+                    <a href="#categories" class="btn secondary">Категориялар</a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="i (14).webp" alt="Смартфон">
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="categories section" id="categories">
+        <div class="container">
+
+            <div class="section-title">
+                <p class="subtitle">КАТЕГОРИЯЛАР</p>
+                <h2>Гаджет түрлері</h2>
+                <p>Өзіңізге қажетті құрылғыны таңдаңыз</p>
+            </div>
+
+            <div class="category-grid">
+
+                <a href="#products" class="category-card">
+                    <img src="i.webp" alt="Смартфон">
+                    <div>
+                        <h3>Смартфондар</h3>
+                        <p>Заманауи телефондар</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (1).webp" alt="Ноутбук">
+                    <div>
+                        <h3>Ноутбуктер</h3>
+                        <p>Жұмыс пен оқу үшін</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (3).webp" alt="Планшет">
+                    <div>
+                        <h3>Планшеттер</h3>
+                        <p>Ыңғайлы әрі жеңіл</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (4).webp" alt="Құлаққап">
+                    <div>
+                        <h3>Құлаққаптар</h3>
+                        <p>Сапалы дыбыс</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (5).webp" alt="Смарт сағат">
+                    <div>
+                        <h3>Смарт сағаттар</h3>
+                        <p>Ақылды технология</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (6).webp" alt="Камера">
+                    <div>
+                        <h3>Камералар</h3>
+                        <p>Сапалы фотосурет</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (7).webp" alt="PowerBank">
+                    <div>
+                        <h3>PowerBank</h3>
+                        <p>Қуатты әрдайым өзіңізбен бірге</p>
+                    </div>
+                </a>
+
+                <a href="#products" class="category-card">
+                    <img src="i (9).webp" alt="Плейстейшен">
+                    <div>
+                        <h3>Плейстейшен</h3>
+                        <p>4K ойынға арналған</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="products section" id="products">
+        <div class="container">
+
+            <div class="section-title">
+                <p class="subtitle">БІЗДІҢ ТАУАРЛАР</p>
+                <h2>Танымал гаджеттер</h2>
+                <p>Сапалы әрі заманауи құрылғылар</p>
+            </div>
+
+            <div class="product-grid">
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (8).webp" alt="iPhone 17 Pro Max">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Смартфон</p>
+                        <h3>iPhone 17 Pro Max 1TB</h3>
+                        <p class="product-text">Жоғары өнімділік және заманауи камера.</p>
+                        <div class="product-bottom">
+                            <strong>1 189 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (10).webp" alt="Ноутбук">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Ноутбук</p>
+                        <h3>Ноутбук HP</h3>
+                        <p class="product-text">Оқу, жұмыс және күнделікті қолдануға арналған.</p>
+                        <div class="product-bottom">
+                            <strong>549 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (11).webp" alt="iPad">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Планшет</p>
+                        <h3>Apple iPad 11</h3>
+                        <p class="product-text">Жеңіл, жұқа және қуатты планшет.</p>
+                        <div class="product-bottom">
+                            <strong>289 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i(14).webp" alt="P9 Pro Max">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Құлаққап</p>
+                        <h3>P9 Pro Max</h3>
+                        <p class="product-text">Таза дыбыс және ұзақ жұмыс уақыты.</p>
+                        <div class="product-bottom">
+                            <strong>19 990</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (13).webp" alt="apple watch">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Смарт сағат</p>
+                        <h3>Apple watch</h3>
+                        <p class="product-text">Күнделікті белсенділікті бақылауға арналған.</p>
+                        <div class="product-bottom">
+                            <strong>249 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="product_image_109947_252790.webp" alt="Camera">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Камера</p>
+                        <h3>Fujifilm Instax mini 11</h3>
+                        <p class="product-text">Фото және видеоға арналған кәсіби камера.</p>
+                        <div class="product-bottom">
+                            <strong>379 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (2).webp" alt="Gaming Console">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">Плейстейшен</p>
+                        <h3>Плейстейшен </h3>
+                        <p class="product-text">Жоғары сапалы ойындар мен ерекше әсер.</p>
+                        <div class="product-bottom">
+                            <strong>399 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+
+                <article class="product-card">
+                    <div class="product-image">
+                        <img src="i (15).webp" alt="PowerBank">
+                    </div>
+                    <div class="product-info">
+                        <p class="product-category">PowerBank</p>
+                        <h3>PowerBank</h3>
+                        <p class="product-text">Үлкен сыйымдылық және жылдам қуаттау.</p>
+                        <div class="product-bottom">
+                            <strong>39 990 ₸</strong>
+                            <a href="#" class="buy-btn">Сатып алу</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="advantages section">
+        <div class="container">
+
+            <div class="section-title">
+                <p class="subtitle">НЕГЕ БІЗ?</p>
+                <h2>GADGETSTORE артықшылықтары</h2>
+            </div>
+
+            <div class="advantage-grid">
+
+                <div class="advantage-card">
+                    <h3>Сапалы өнім</h3>
+                    <p>
+                        Біз заманауи және сапалы гаджеттерді ұсынамыз.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <h3>Жылдам жеткізу</h3>
+                    <p>
+                        Тапсырысыңызды қысқа уақытта жеткізуге тырысамыз.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <h3>Тиімді баға</h3>
+                    <p>
+                        Танымал гаджеттерді қолжетімді бағамен сатып алыңыз.
+                    </p>
+                </div>
+
+                <div class="advantage-card">
+                    <h3>Қолдау қызметі</h3>
+                    <p>
+                        Сұрақтарыңыз болса, біздің мамандар көмектеседі.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="about section" id="about">
+        <div class="container about-content">
+
+            <div class="about-image">
+                <img src="i (17).webp" alt="Gadget Store">
+            </div>
+
+            <div class="about-text">
+                <p class="subtitle">БІЗ ТУРАЛЫ</p>
+
+                <h2>Технологияны барлығына қолжетімді етеміз</h2>
+
+                <p>
+                    GADGETSTORE — заманауи электроника мен гаджеттерді
+                    ұсынатын онлайн дүкен. Біз смартфондардан бастап
+                    ноутбуктерге, құлаққаптарға және ойын құрылғыларына
+                    дейінгі көптеген өнімдерді ұсынамыз.
+                </p>
+
+                <p>
+                    Біздің мақсатымыз — сапалы технологияларды ыңғайлы
+                    және қолжетімді түрде ұсыну.
+                </p>
+
+                <a href="#contact" class="btn primary">Бізбен байланысу</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="newsletter" id="contact">
+        <div class="container newsletter-content">
+
+            <div>
+                <p class="subtitle">ЖАҢАЛЫҚТАР</p>
+                <h2>Жаңа тауарлар туралы бірінші болып біліңіз</h2>
+                <p>
+                    Жеңілдіктер мен жаңа гаджеттер туралы ақпарат алыңыз.
+                </p>
+            </div>
+
+            <form class="newsletter-form">
+                <input type="email" placeholder="Email мекенжайы">
+                <button type="submit">Жазылу</button>
+            </form>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer class="footer">
+    <div class="container footer-content">
+
+        <div class="footer-column">
+            <a href="#" class="logo footer-logo">GADGETSTORE</a>
+            <p>
+                Заманауи гаджеттер мен электроникаға арналған
+                онлайн дүкен.
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>Дүкен</h3>
+            <a href="#products">Смартфондар</a>
+            <a href="#products">Ноутбуктер</a>
+            <a href="#products">Планшеттер</a>
+            <a href="#products">Құлаққаптар</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Ақпарат</h3>
+            <a href="#about">Біз туралы</a>
+            <a href="#contact">Байланыс</a>
+            <a href="#">Жеткізу</a>
+            <a href="#">Төлем</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Байланыс</h3>
+            <p>Қазақстан</p>
+            <p>+7 700 000</p>
+            <p>info@gadgetstore.kz</p>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        <p>© 2026 GADGETSTORE. Барлық құқықтар қорғалған.</p>
+    </div>
+</footer>
+
+</body>
+</html>
